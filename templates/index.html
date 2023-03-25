@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <title>LLSum</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='logo.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='logo.png') }}" class="icon" />
+  <h3>Summarize this:</h3>
+  <form action="/" method="post">
+    <input type="text" name="url" placeholder="Enter a URL" required />
+    <input type="submit" value="Summarize" />
+  </form>
+  {% if result %}
+  <div class="result"> {% for para in result %}
+     <p>{{para}}</p>
+ {% endfor %}</div>
+  {% endif %}
+</body>
